@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Show</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row float-right"><a class="btn btn-primary" role="button" href="/shows">Go Back</a></div>
+        <div class="row my-3">
+            <h1>TV Show {{id}}</h1>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>Title: {{title}}</p>
+                <p>Network: {{network}}</p>
+                <p>Release Date: {{date}}</p>
+                <p>Description: {{desc}}</p>
+            </div>
+        </div>
+        <div class="row mt-10">
+            <div class="col">
+                <p>Last Updated: {{updated_at}}</p>
+                <p><a class="btn btn-primary m-2" role="button" href="/shows/{{id}}/edit">Edit</a> <a class="btn btn-danger m-2" role="button" href="/shows/{{id}}/destroy">Delete</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

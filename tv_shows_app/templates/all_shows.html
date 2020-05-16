@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Shows</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row m-3">
+            <h1>All Shows</h1>
+        </div>
+        <div class="row">
+            <div class="col">
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Release Date</th>
+                            <th scope="col">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for show in all_shows %}
+                            <tr>
+                                <th scope="row">{{show.id}}</th>
+                                <td>{{show.title}}</td>
+                                <td>{{show.date}}</td>
+                                <td>
+                                    <a class="btn btn-sm btn-primary mx-1" href="/shows/{{show.id}}">Show</a>
+                                    <a class="btn btn-sm btn-light mx-1" href="/shows/{{show.id}}/edit">Edit</a>
+                                    <a class="btn btn-sm btn-danger mx-1" href="/shows/{{show.id}}/destroy"><span id="delete">Delete</span></a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row m-3"><a class="btn btn-primary" role="button" href="/shows/new">Add a New Show</a></div>
+    </div>
+</body>
+</html>
